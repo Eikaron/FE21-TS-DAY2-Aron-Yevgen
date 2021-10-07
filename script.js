@@ -24,12 +24,19 @@ var Person = /** @class */ (function () {
 }());
 var Student = /** @class */ (function (_super) {
     __extends(Student, _super);
-    function Student(name, age) {
+    function Student(name, age, grades) {
         var _this = _super.call(this, name, age) || this;
+        _this.grades = grades;
         _this.grades = grades;
         return _this;
     }
+    Student.prototype.printData = function () {
+        return "My name is " + this.name + " and I am " + this.age + " years old and my grades are " + this.grades + ".";
+    };
     return Student;
 }(Person));
 var person1 = new Person("Aron", 29);
 document.getElementById("Example").innerHTML = person1.printData();
+document.getElementById("Example2").innerHTML = person1.printData();
+var student1 = new Student("Johanna", 30, [1, 2, 3, 4, 5]);
+console.log(student1.printData());
