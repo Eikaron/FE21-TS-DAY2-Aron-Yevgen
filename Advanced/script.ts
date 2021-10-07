@@ -1,9 +1,3 @@
-function calculatePrice(){
-
-
-};
-
-
 class Vehicles {
     brand: string;
     model: string;
@@ -14,6 +8,8 @@ class Vehicles {
     seats: number;
     year: number;
     km: number;
+    //rdm: number = Math.random();
+    //rdm: number = toString(Math.random());
 
     constructor(brand: string, model: string, fuel: string, avlbColor: string[], img:string, seats: number, year: number, km: number){
         this.brand = brand;
@@ -45,15 +41,24 @@ class Vehicles {
           <li class="list-group-item">Available Colors: ${this.avlbColor}</li>
         </ul>
         <div class="card-body">
-            <button type="button" class="btn btn-primary"> Show Price </button>
+            <button type="button" id="${this.rdm}" class="btn btn-primary"> Show Price </button>
         </div>
       </div>
       <div>`;
+
+
+    /*     let allbuttons = document.getElementsByClassName(`btn`);
+
+        for (let i = 0; i < allbuttons.length; i++){
+            allbuttons[i].addEventListener("click", function(){
+                alert("Test");
+          });
+        } */
+
+        document.getElementById(this.rdm).addEventListener("click", function(){
+            console.log("test");
+        })
     }
-}
-
-class Car extends Vehicles {
-
 }
 
 class tinyCar extends Vehicles {
@@ -89,29 +94,30 @@ class Trucks extends Vehicles {
     }
 
     printInfo(){
-        document.getElementById("printhere").innerHTML += `
-        <div class="col m-2">
-        <div class="card" style="width: 20rem; height: 40rem">
-        <img src="${this.img}" class="card-img-top" style="height: 200px" alt="Car">
-        <div class="card-body">
-          <h5 class="card-title" style="heigh: 3rem">${this.brand} ${this.model} (${this.year}) </h5>
-          <p class="card-text" style="height: 1rem">Some generic description I'm too lazy to write.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-        <hr>
-            <li class="list-group-item">Number of seats: ${this.seats}</li>
-            <li class="list-group-item">Type of Fuel: ${this.fuel}</li>
-            <li class="list-group-item">Kilometers: ${this.km}</li>
-            <li class="list-group-item">Available Colors: ${this.avlbColor}</li>
-            <li class="list-group-item">Load bearing capacity: ${this.capacity} m<sup>3</sup></li>       
-        </ul>
-        <div class="card-body">
-            <button type="button" class="btn btn-primary"> Show Price </button>
-        </div>
-      </div>
-      <div>`
-    }
+            document.getElementById("printhere").innerHTML += `
+            <div class="col m-2">
+            <div class="card" style="width: 20rem; height: 40rem">
+            <img src="${this.img}" class="card-img-top" style="height: 200px" alt="Car">
+            <div class="card-body">
+              <h5 class="card-title" style="heigh: 3rem">${this.brand} ${this.model} (${this.year}) </h5>
+              <p class="card-text" style="height: 1rem">Some generic description I'm too lazy to write.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <hr>
+              <li class="list-group-item">Number of seats: ${this.seats}</li>
+              <li class="list-group-item">Type of Fuel: ${this.fuel}</li>
+              <li class="list-group-item">Kilometers: ${this.km}</li>
+              <li class="list-group-item">Available Colors: ${this.avlbColor}</li>
+              <li class="list-group-item">Load Bearing Capacity: ${this.capacity}</li>
+            </ul>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary"> Show Price </button>
+            </div>
+          </div>
+          <div>`;
+        }
 }
+
 
 let car1 = new Vehicles("Volvo", "XZ3", "E-Car", ["Red", "Orange", "Black"],"https://cdn.pixabay.com/photo/2012/11/02/13/02/car-63930_960_720.jpg", 5, 2016, 15000)
 
@@ -128,3 +134,13 @@ truck1.printInfo();
 let tinyCar1 = new tinyCar("Smart", "500", "Hybrid", ["Blue", "Green", "Yellow", "Orange", "Red", "Purple", "Black", "White", "Silver"], "https://cdn.pixabay.com/photo/2020/02/16/09/16/smart-4852950_960_720.jpg", 5, 2021, 0);
 
 tinyCar1.printInfo();
+
+
+/* 
+let allbuttons = document.getElementsByClassName(`btn`);
+
+for (let i = 0; i < allbuttons.length; i++){
+    allbuttons[i].addEventListener("click", function(){
+        alert("Test");
+  });
+} */

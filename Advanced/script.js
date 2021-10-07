@@ -11,10 +11,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-function calculatePrice() {
-}
-;
 var Vehicles = /** @class */ (function () {
+    //rdm: number = Math.random();
+    //rdm: number = toString(Math.random());
     function Vehicles(brand, model, fuel, avlbColor, img, seats, year, km) {
         this.brand = brand;
         this.model = model;
@@ -26,17 +25,20 @@ var Vehicles = /** @class */ (function () {
         this.km = km;
     }
     Vehicles.prototype.printInfo = function () {
-        document.getElementById("printhere").innerHTML += "\n        <div class=\"col m-2\">\n        <div class=\"card\" style=\"width: 20rem; height: 40rem\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" style=\"height: 200px\" alt=\"Car\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\" style=\"heigh: 3rem\">" + this.brand + " " + this.model + " (" + this.year + ") </h5>\n          <p class=\"card-text\" style=\"height: 1rem\">Some generic description I'm too lazy to write.</p>\n        </div>\n        <ul class=\"list-group list-group-flush\">\n        <hr>\n          <li class=\"list-group-item\">Number of seats: " + this.seats + "</li>\n          <li class=\"list-group-item\">Type of Fuel: " + this.fuel + "</li>\n          <li class=\"list-group-item\">Kilometers: " + this.km + "</li>\n          <li class=\"list-group-item\">Available Colors: " + this.avlbColor + "</li>\n        </ul>\n        <div class=\"card-body\">\n            <button type=\"button\" class=\"btn btn-primary\"> Show Price </button>\n        </div>\n      </div>\n      <div>";
+        document.getElementById("printhere").innerHTML += "\n        <div class=\"col m-2\">\n        <div class=\"card\" style=\"width: 20rem; height: 40rem\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" style=\"height: 200px\" alt=\"Car\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\" style=\"heigh: 3rem\">" + this.brand + " " + this.model + " (" + this.year + ") </h5>\n          <p class=\"card-text\" style=\"height: 1rem\">Some generic description I'm too lazy to write.</p>\n        </div>\n        <ul class=\"list-group list-group-flush\">\n        <hr>\n          <li class=\"list-group-item\">Number of seats: " + this.seats + "</li>\n          <li class=\"list-group-item\">Type of Fuel: " + this.fuel + "</li>\n          <li class=\"list-group-item\">Kilometers: " + this.km + "</li>\n          <li class=\"list-group-item\">Available Colors: " + this.avlbColor + "</li>\n        </ul>\n        <div class=\"card-body\">\n            <button type=\"button\" id=\"" + this.rdm + "\" class=\"btn btn-primary\"> Show Price </button>\n        </div>\n      </div>\n      <div>";
+        /*     let allbuttons = document.getElementsByClassName(`btn`);
+    
+            for (let i = 0; i < allbuttons.length; i++){
+                allbuttons[i].addEventListener("click", function(){
+                    alert("Test");
+              });
+            } */
+        document.getElementById(this.rdm).addEventListener("click", function () {
+            console.log("test");
+        });
     };
     return Vehicles;
 }());
-var Car = /** @class */ (function (_super) {
-    __extends(Car, _super);
-    function Car() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return Car;
-}(Vehicles));
 var tinyCar = /** @class */ (function (_super) {
     __extends(tinyCar, _super);
     function tinyCar(brand, model, fuel, avlbColor, img, seats, year, km) {
@@ -67,7 +69,7 @@ var Trucks = /** @class */ (function (_super) {
         return _this;
     }
     Trucks.prototype.printInfo = function () {
-        document.getElementById("printhere").innerHTML += "\n        <div class=\"col m-2\">\n        <div class=\"card\" style=\"width: 20rem; height: 40rem\">\n        <img src=\"" + this.img + "\" class=\"card-img-top\" style=\"height: 200px\" alt=\"Car\">\n        <div class=\"card-body\">\n          <h5 class=\"card-title\" style=\"heigh: 3rem\">" + this.brand + " " + this.model + " (" + this.year + ") </h5>\n          <p class=\"card-text\" style=\"height: 1rem\">Some generic description I'm too lazy to write.</p>\n        </div>\n        <ul class=\"list-group list-group-flush\">\n        <hr>\n            <li class=\"list-group-item\">Number of seats: " + this.seats + "</li>\n            <li class=\"list-group-item\">Type of Fuel: " + this.fuel + "</li>\n            <li class=\"list-group-item\">Kilometers: " + this.km + "</li>\n            <li class=\"list-group-item\">Available Colors: " + this.avlbColor + "</li>\n            <li class=\"list-group-item\">Load bearing capacity: " + this.capacity + " m<sup>3</sup></li>       \n        </ul>\n        <div class=\"card-body\">\n            <button type=\"button\" class=\"btn btn-primary\"> Show Price </button>\n        </div>\n      </div>\n      <div>";
+        document.getElementById("printhere").innerHTML += "\n            <div class=\"col m-2\">\n            <div class=\"card\" style=\"width: 20rem; height: 40rem\">\n            <img src=\"" + this.img + "\" class=\"card-img-top\" style=\"height: 200px\" alt=\"Car\">\n            <div class=\"card-body\">\n              <h5 class=\"card-title\" style=\"heigh: 3rem\">" + this.brand + " " + this.model + " (" + this.year + ") </h5>\n              <p class=\"card-text\" style=\"height: 1rem\">Some generic description I'm too lazy to write.</p>\n            </div>\n            <ul class=\"list-group list-group-flush\">\n            <hr>\n              <li class=\"list-group-item\">Number of seats: " + this.seats + "</li>\n              <li class=\"list-group-item\">Type of Fuel: " + this.fuel + "</li>\n              <li class=\"list-group-item\">Kilometers: " + this.km + "</li>\n              <li class=\"list-group-item\">Available Colors: " + this.avlbColor + "</li>\n              <li class=\"list-group-item\">Load Bearing Capacity: " + this.capacity + "</li>\n            </ul>\n            <div class=\"card-body\">\n                <button type=\"button\" class=\"btn btn-primary\"> Show Price </button>\n            </div>\n          </div>\n          <div>";
     };
     return Trucks;
 }(Vehicles));
@@ -79,3 +81,11 @@ var truck1 = new Trucks("Somebrand", "Ace3000", "Petrol", ["Red", "Silver"], "ht
 truck1.printInfo();
 var tinyCar1 = new tinyCar("Smart", "500", "Hybrid", ["Blue", "Green", "Yellow", "Orange", "Red", "Purple", "Black", "White", "Silver"], "https://cdn.pixabay.com/photo/2020/02/16/09/16/smart-4852950_960_720.jpg", 5, 2021, 0);
 tinyCar1.printInfo();
+/*
+let allbuttons = document.getElementsByClassName(`btn`);
+
+for (let i = 0; i < allbuttons.length; i++){
+    allbuttons[i].addEventListener("click", function(){
+        alert("Test");
+  });
+} */ 
